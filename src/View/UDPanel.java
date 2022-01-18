@@ -32,24 +32,31 @@ public class UDPanel extends JPanel {
     private void btDeleteMouseClicked(MouseEvent e) {
         Device dv = new Device();
         // TODO add your code here
-//        int index = table1.getSelectedRow();
+        try{
+            //        int index = table1.getSelectedRow();
 //        System.out.println(index);
 //        // int id = table1.getSelectedRow().
-        int row = table1.getSelectedRow();
-        int ids= (int) table1.getValueAt(row, 0);
-        System.out.println(ids);
-        dv.setId(ids);
-        if(row == -1 ){
-            JOptionPane.showMessageDialog(this,"There are no items to choose from");
-        }
-        else{
-           int choose= JOptionPane.showConfirmDialog(this, "Do you want to delete?", "Confirm", JOptionPane.YES_NO_OPTION);
-            if(choose != JOptionPane.YES_OPTION){
-                return;
+            int row = table1.getSelectedRow();
+            int ids= (int) table1.getValueAt(row, 0);
+            System.out.println(ids);
+
+            if(row == 0 || ids == 0 ){
+                JOptionPane.showMessageDialog(this,"There are no items to choose from");
             }
             else{
-                ConJDBC.delete(dv);
+                int choose= JOptionPane.showConfirmDialog(this, "Do you want to delete?", "Confirm", JOptionPane.YES_NO_OPTION);
+                if(choose != JOptionPane.YES_OPTION){
+                    return;
+                }
+                else{
+                    dv.setId(ids);
+                    ConJDBC.delete(dv);
+                }
             }
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this,"There are no items to choose from");
         }
 
 
@@ -63,6 +70,37 @@ public class UDPanel extends JPanel {
     private void button3MouseClicked(MouseEvent e) {
         // TODO add your code here
         showData(ConJDBC.getAll());
+    }
+
+    private void btUpdateMouseClicked(MouseEvent e) {
+        // TODO add your code here
+        try{
+            int row = table1.getSelectedRow();
+            int id= (int) table1.getValueAt(row, 0);
+            String name  = (String) table1.getValueAt(row, 1);
+            String position = (String) table1.getValueAt(row, 2);
+            String status = (String) table1.getValueAt(row, 3);
+             String note = (String) table1.getValueAt(row, 4);
+
+//            System.out.println(id);
+//            System.out.println(name);
+//            System.out.println(position);
+//            System.out.println(status);
+//            System.out.println(note);
+
+            UpdateDialog ud = new UpdateDialog();
+            ud.txId.setText(id +"");
+            ud.txId.setEditable(false);
+            ud.txName.setText(name);
+            ud.txP.setText(position);
+            ud.txS.setText(status);
+            ud.txNote.setText(note);
+            ud.setVisible(true);
+            ud.setLocationRelativeTo(null);
+        }
+        catch(Exception ex){
+
+        }
     }
 
     private void initComponents() {
@@ -122,6 +160,12 @@ public class UDPanel extends JPanel {
 
         //---- btUpdate ----
         btUpdate.setText("Update");
+        btUpdate.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                btUpdateMouseClicked(e);
+            }
+        });
 
         //======== tabbedPane1 ========
         {
@@ -200,17 +244,16 @@ public class UDPanel extends JPanel {
                     .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createSequentialGroup()
                     .addGap(51, 51, 51)
-                    .addGroup(layout.createParallelGroup()
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(button3)
-                            .addGap(116, 116, 116)
-                            .addComponent(btDelete, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
-                            .addComponent(btUpdate, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-                            .addGap(229, 229, 229))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(tabbedPane1, GroupLayout.PREFERRED_SIZE, 676, GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(78, Short.MAX_VALUE))))
+                    .addComponent(tabbedPane1, GroupLayout.PREFERRED_SIZE, 676, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(78, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(74, 74, 74)
+                    .addComponent(button3, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                    .addComponent(btDelete, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
+                    .addGap(138, 138, 138)
+                    .addComponent(btUpdate, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
+                    .addGap(179, 179, 179))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
@@ -221,11 +264,10 @@ public class UDPanel extends JPanel {
                     .addGap(35, 35, 35)
                     .addComponent(tabbedPane1, GroupLayout.PREFERRED_SIZE, 318, GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup()
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(button3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(btUpdate))
+                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(btUpdate)
+                        .addComponent(btDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(button3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGap(40, 40, 40))
         );
 

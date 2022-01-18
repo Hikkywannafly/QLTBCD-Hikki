@@ -1,0 +1,127 @@
+JFDML JFormDesigner: "7.0.5.2.410" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"title": "Update Dialog"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "dialogPane"
+				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq {space :::p, par l {seq {par l {comp label5:::p:84:p, comp label3::l:p:84:p, comp label4::l:p:55:p, comp label1::l:p:26:p}, space :p:28:p, par l {comp txS:::p:160:p, comp txNote:::p:160:p, comp txP::l:p:160:p, comp txName::l:p:160:p, comp txId:::p:160:p}, space ::111:x}, seq l {comp label2:::p:57:p, space :0:0:x}}}, comp panel1::l:::x}"
+					"$verticalGroup": "par l {seq l {comp panel1:::p::p, space :::x, par b {comp txId::b:p::p, comp label1::b:p::p}, space s:::p, par b {comp label2::b:p::p, comp txName::b:p::p}, space s:::p, par b {comp txP::b:p::p, comp label3::b:p::p}, space s:::p, par b {comp txS::b:p::p, comp label4::b:p::p}, space s:::p, par b {comp label5::b:p::p, comp txNote::b:p::p}, space :::p}}"
+				} ) {
+					name: "contentPanel"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label1"
+						"text": "ID"
+						"font": &Font0 new java.awt.Font( "Segoe UI Black", 2, 14 )
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "txId"
+						"font": new java.awt.Font( "Segoe UI", 2, 16 )
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "txName"
+						"font": new java.awt.Font( "Segoe UI", 2, 16 )
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label2"
+						"text": "Name"
+						"font": #Font0
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "txP"
+						"font": new java.awt.Font( "Segoe UI", 2, 16 )
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label3"
+						"text": "Position"
+						"font": #Font0
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "txS"
+						"font": new java.awt.Font( "Segoe UI", 2, 16 )
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label4"
+						"text": "Status"
+						"font": #Font0
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "txNote"
+						"font": new java.awt.Font( "Segoe UI", 2, 16 )
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label5"
+						"text": "Note"
+						"font": #Font0
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {seq l {space :p:14:p, comp label6:::p::p, space ::302:x}}"
+						"$verticalGroup": "par l {comp label6::l::23:x}"
+					} ) {
+						name: "panel1"
+						"background": new java.awt.Color( 80, 64, 154, 255 )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label6"
+							"text": "Update Dialog"
+							"font": new java.awt.Font( "Segoe UI", 2, 14 )
+						} )
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+					"$columnSpecs": "0:1.0, 80, 80"
+					"$rowSpecs": "0"
+					"$hGap": 5
+					"$vGap": 5
+				} ) {
+					name: "buttonBar"
+					"border": new javax.swing.border.EmptyBorder( 12, 0, 0, 0 )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "okButton"
+						"text": "OK"
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "okButtonMouseClicked", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 0
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "cancelButton"
+						"text": "Cancel"
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "cancelButtonMouseClicked", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 2
+						"gridy": 0
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "South"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 225, 5 )
+			"size": new java.awt.Dimension( 415, 365 )
+		} )
+	}
+}

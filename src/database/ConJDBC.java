@@ -64,7 +64,7 @@ public class ConJDBC {
         }
     }
     public static void update(Device dv){
-        String query = "UPDATE set id = ?, name=? , position=?, statuss=?,note=? where id='\"+ dv.getId()";
+        String query = "UPDATE device set  id = ?, name=? , position=?, statuss = ?,note = ? where id = "+ dv.getId();
         try{
             Connection connection = getConnection();
             PreparedStatement pstmt =connection.prepareStatement(query);
@@ -86,6 +86,12 @@ public class ConJDBC {
             Connection connection =getConnection();
             PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.executeUpdate();
+
+        }
+        catch(SQLException ex){
+
+
+                JOptionPane.showMessageDialog(null,"Some thing wear Wrong");
 
         }
         catch(Exception e){

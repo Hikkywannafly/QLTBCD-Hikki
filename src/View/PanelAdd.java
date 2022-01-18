@@ -12,6 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLDataException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -145,14 +146,20 @@ public class PanelAdd extends JPanel {
 
                     }
                     else{
-                        dv.setId(id);
-                        dv.setName(name);
-                        dv.setPosition(position);
-                        dv.setStatus(status);
-                        dv.setNote(note);
+                        try{
+                            dv.setId(id);
+                            dv.setName(name);
+                            dv.setPosition(position);
+                            dv.setStatus(status);
+                            dv.setNote(note);
 
-                        ConJDBC.insert(dv);
-                        JOptionPane.showMessageDialog(null,"Add success !");
+                            ConJDBC.insert(dv);
+                            JOptionPane.showMessageDialog(null,"Add success !");
+                        } catch(Exception exx){
+                            exx.printStackTrace();
+                            JOptionPane.showMessageDialog(null,"some thing was wrong");
+                        }
+
                     }
                 }
                 catch(Exception ex){
