@@ -1,6 +1,7 @@
 package database;
 
 import enity.Device;
+import enity.DeviceB;
 
 import javax.swing.*;
 import java.sql.*;
@@ -118,6 +119,81 @@ public class ConJDBC {
         return deviceList1;
 
     }
+    public static void insertb(DeviceB dv){
+        String query = "INSERT INTO deviceb (id, name, position, statuss,datee, note) VALUES (?,?,?,?,?,?)";
+        try{
+            Connection connection = getConnection();
+            PreparedStatement pstmt =connection.prepareStatement(query);
+            pstmt.setInt(1,dv.getId());
+            pstmt.setString(2,dv.getName());
+            pstmt.setString(3,dv.getPosition());
+            pstmt.setString(4,dv.getStatus());
+            pstmt.setString(5,dv.getDate());
+            pstmt.setString(6,dv.getNote());
+            pstmt.executeUpdate();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+
+        }
+    }
+    public static List<DeviceB> getAllB(){
+        List<DeviceB>deviceList = new ArrayList<>();
+        String query = "Select * from deviceb";
+        try {
+            Connection connection= getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                DeviceB st = new DeviceB(rs.getInt("id"),rs.getString("name"),rs.getString("position"),rs.getString("statuss"),rs.getString("datee"),
+                        rs.getString("note"));
+                deviceList.add(st);
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return deviceList;
+
+    }
+    public static int countDevice(){
+        int sum =0;
+        String query = "select count(id) as 'count' from device ";
+        try {
+            Connection connection= getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                sum =  rs.getInt("count");
+            }
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Some Things Were Wrong@");
+        }
+        return sum;
+    }
+    public static int countDeviceB(){
+        int sum =0;
+        String query = "select count(id) as 'count' from deviceb ";
+        try {
+            Connection connection= getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                sum =  rs.getInt("count");
+            }
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Some Things Were Wrong@");
+        }
+        return sum;
+    }
 
 }
+
 

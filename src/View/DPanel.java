@@ -4,8 +4,15 @@
 
 package View;
 
+import database.ConJDBC;
+import enity.DeviceB;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.GroupLayout;
+import javax.swing.table.*;
 
 /**
  * @author TamNguyen
@@ -17,33 +24,79 @@ public class DPanel extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        label1 = new JLabel();
+        tabbedPane1 = new JTabbedPane();
+        scrollPane1 = new JScrollPane();
+        table1 = new JTable();
 
         //======== this ========
 
-        //---- label1 ----
-        label1.setText("Coming Soon");
+        //======== tabbedPane1 ========
+        {
+
+            //======== scrollPane1 ========
+            {
+
+                //---- table1 ----
+                table1.setModel(new DefaultTableModel(
+                    new Object[][] {
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, ""},
+                        {null, null, null, null, null, null},
+                    },
+                    new String[] {
+                        "ID", "Name", "Position", "Status", "Date", "Note"
+                    }
+                ));
+                table1.setGridColor(Color.white);
+                table1.setFont(new Font("JetBrains Mono ExtraBold", Font.ITALIC, 14));
+                scrollPane1.setViewportView(table1);
+            }
+            tabbedPane1.addTab("Device B", scrollPane1);
+        }
 
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup()
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(187, 187, 187)
-                    .addComponent(label1)
-                    .addContainerGap(399, Short.MAX_VALUE))
+                    .addGap(44, 44, 44)
+                    .addComponent(tabbedPane1, GroupLayout.PREFERRED_SIZE, 648, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(127, 127, 127)
-                    .addComponent(label1)
-                    .addContainerGap(252, Short.MAX_VALUE))
+                    .addGap(32, 32, 32)
+                    .addComponent(tabbedPane1, GroupLayout.PREFERRED_SIZE, 278, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(105, Short.MAX_VALUE))
         );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JLabel label1;
+    private JTabbedPane tabbedPane1;
+    private JScrollPane scrollPane1;
+    private JTable table1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+    public void showDataB(java.util.List<DeviceB> DVB){
+        List<DeviceB> DeviceList = new ArrayList<>();
+        DeviceList = DVB;
+        DefaultTableModel model;
+        table1.getModel();
+        model = (DefaultTableModel) table1.getModel();
+        model.setRowCount(0);
+        DeviceList.forEach((cf)->{
+            model.addRow(new Object [] {
+                    cf.getId(),cf.getName(),cf.getPosition(),cf.getStatus(),cf.getDate(),cf.getNote()
+            });
+        });
+
+    };
 }

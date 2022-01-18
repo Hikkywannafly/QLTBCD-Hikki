@@ -59,7 +59,7 @@ new FormModel {
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :p:54:p, comp labelBill:::p:56:p, space :::x}}"
+					"$horizontalGroup": "par l {seq l {space :p:54:p, comp labelBill:::p:71:p, space :::x}}"
 					"$verticalGroup": "par l {seq l {space :::p, comp labelBill:::p::p, space :::x}}"
 				} ) {
 					name: "panelBiling"
@@ -67,7 +67,7 @@ new FormModel {
 					"background": new java.awt.Color( 255, 255, 255, 255 )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "labelBill"
-						"text": "Detail"
+						"text": "Receive"
 						"foreground": new java.awt.Color( 81, 147, 179, 255 )
 						"font": new java.awt.Font( "Segoe UI Black", 2, 16 )
 					} )
@@ -107,7 +107,7 @@ new FormModel {
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 					"$horizontalGroup": "par l {seq l {comp panel10:::p::p, space :p:47:p, comp labelHome:::p::p, space :::x}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp labelHome:::p::p, space ::16:x}, comp panel10::l:::x}"
+					"$verticalGroup": "par l {seq l {space :::p, comp labelHome:::p::p, space ::21:x}, comp panel10::l:::x}"
 				} ) {
 					name: "panelHome"
 					"background": #Color0

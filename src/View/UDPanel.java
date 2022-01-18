@@ -99,7 +99,7 @@ public class UDPanel extends JPanel {
             ud.setLocationRelativeTo(null);
         }
         catch(Exception ex){
-
+            ex.printStackTrace();
         }
     }
 
@@ -114,7 +114,6 @@ public class UDPanel extends JPanel {
         scrollPane2 = new JScrollPane();
         table1 = new JTable();
         scrollPane3 = new JScrollPane();
-        table2 = new JTable();
         button3 = new JButton();
         panelTT = new JPanel();
 
@@ -198,29 +197,9 @@ public class UDPanel extends JPanel {
                     }
                 });
                 scrollPane2.setViewportView(table1);
+                showData(ConJDBC.getAll());
             }
             tabbedPane1.addTab("Device", scrollPane2);
-            showData(ConJDBC.getAll());
-
-            //======== scrollPane3 ========
-            {
-
-                //---- table2 ----
-                table2.setModel(new DefaultTableModel(
-                    new Object[][] {
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                    },
-                    new String[] {
-                        "ID", "Name", "Day Start", "Day End", "Note"
-                    }
-                ));
-                table2.setGridColor(Color.white);
-                scrollPane3.setViewportView(table2);
-            }
             tabbedPane1.addTab("Maintenance", scrollPane3);
         }
 
@@ -298,7 +277,6 @@ public class UDPanel extends JPanel {
     private JScrollPane scrollPane2;
     private JTable table1;
     private JScrollPane scrollPane3;
-    private JTable table2;
     private JButton button3;
     private JPanel panelTT;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

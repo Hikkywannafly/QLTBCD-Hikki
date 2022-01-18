@@ -4,8 +4,16 @@
 
 package View;
 
+import Controller.ChartCon;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+
 import javax.swing.*;
 import javax.swing.GroupLayout;
+import java.awt.*;
 
 /**
  * @author TamNguyen
@@ -13,6 +21,8 @@ import javax.swing.GroupLayout;
 public class ChartPanel extends JPanel {
     public ChartPanel() {
         initComponents();
+        ChartCon cc = new ChartCon();
+        cc.setDataToChart1(this);
     }
 
     private void initComponents() {
@@ -24,11 +34,11 @@ public class ChartPanel extends JPanel {
         setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup()
-                .addGap(0, 400, Short.MAX_VALUE)
+                .addGap(0, 765, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
-                .addGap(0, 300, Short.MAX_VALUE)
+                .addGap(0, 420, Short.MAX_VALUE)
         );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

@@ -7,6 +7,7 @@ package View;
 import java.awt.event.*;
 import database.ConJDBC;
 import enity.Device;
+import enity.DeviceB;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -33,14 +34,49 @@ public class HomePanel extends JPanel {
         //textField1
     }
 
+    private void btRestMouseClicked(MouseEvent e) {
+        // TODO add your code here
+        showData(ConJDBC.getAll());
+        showDataB(ConJDBC.getAllB());
+    }
+
+    private void btRMouseClicked(MouseEvent e) {
+        // TODO add your code here
+        try{
+            int row = table1.getSelectedRow();
+            int id= (int) table1.getValueAt(row, 0);
+            String name  = (String) table1.getValueAt(row, 1);
+            String position = (String) table1.getValueAt(row, 2);
+            String status = (String) table1.getValueAt(row, 3);
+            String note = (String) table1.getValueAt(row, 4);
+
+            ReportDialog rd = new ReportDialog();
+            rd.txId.setText(id +"");
+            rd.txId.setEditable(false);
+            rd.txName.setText(name);
+            rd.txName.setEditable(false);
+            rd.txP.setText(position);
+            rd.txP.setEditable(false);
+            rd.txS.setText(status);
+            rd.txS.setEditable(false);
+            rd.txNote.setText(note);
+            rd.setVisible(true);
+            rd.setLocationRelativeTo(null);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
         textField1 = new JTextField();
         btFind = new JButton();
         label1 = new JLabel();
-        btFind2 = new JButton();
-        btFind3 = new JButton();
+        btRest = new JButton();
+        btR = new JButton();
         panel2 = new JPanel();
         panel3 = new JPanel();
         label2 = new JLabel();
@@ -49,10 +85,6 @@ public class HomePanel extends JPanel {
         label3 = new JLabel();
         label4 = new JLabel();
         label5 = new JLabel();
-        panel6 = new JPanel();
-        panel7 = new JPanel();
-        label6 = new JLabel();
-        label7 = new JLabel();
         tabbedPane1 = new JTabbedPane();
         scrollPane2 = new JScrollPane();
         table1 = new JTable();
@@ -87,24 +119,27 @@ public class HomePanel extends JPanel {
             label1.setForeground(new Color(51, 51, 51));
             label1.setFont(new Font("Segoe UI Black", Font.ITALIC, 10));
 
-            //---- btFind2 ----
-            btFind2.setText("Reset");
-            btFind2.setBackground(new Color(81, 147, 179));
-            btFind2.setFont(new Font("Segoe UI Black", Font.ITALIC, 10));
-            btFind2.addMouseListener(new MouseAdapter() {
+            //---- btRest ----
+            btRest.setText("Reset");
+            btRest.setBackground(new Color(81, 147, 179));
+            btRest.setFont(new Font("Segoe UI Black", Font.ITALIC, 10));
+            btRest.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    btFindMouseClicked(e);
-                    showData(ConJDBC.getAll());
-
-
+                    btRestMouseClicked(e);
                 }
             });
 
-            //---- btFind3 ----
-            btFind3.setText("About");
-            btFind3.setBackground(new Color(81, 147, 179));
-            btFind3.setFont(new Font("Segoe UI Black", Font.ITALIC, 10));
+            //---- btR ----
+            btR.setText("Report");
+            btR.setBackground(new Color(81, 147, 179));
+            btR.setFont(new Font("Segoe UI Black", Font.ITALIC, 10));
+            btR.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    btRMouseClicked(e);
+                }
+            });
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
@@ -124,8 +159,8 @@ public class HomePanel extends JPanel {
                             .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(panel1Layout.createParallelGroup()
-                                    .addComponent(btFind2, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btFind3, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btRest, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btR, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap())
             );
             panel1Layout.setVerticalGroup(
@@ -138,9 +173,9 @@ public class HomePanel extends JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(btFind, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btFind2, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btRest, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btFind3, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btR, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(133, Short.MAX_VALUE))
             );
         }
@@ -166,7 +201,9 @@ public class HomePanel extends JPanel {
             }
 
             //---- label2 ----
-            label2.setText("30");
+            int show = ConJDBC.countDevice();
+            String show1 = show+"";
+            label2.setText(show1);
             label2.setFont(new Font("Segoe UI Black", Font.BOLD, 48));
             label2.setForeground(new Color(102, 102, 102));
 
@@ -186,7 +223,7 @@ public class HomePanel extends JPanel {
                         .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
                         .addComponent(label2, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 21, Short.MAX_VALUE))
             );
         }
 
@@ -202,7 +239,7 @@ public class HomePanel extends JPanel {
                 panel5.setLayout(panel5Layout);
                 panel5Layout.setHorizontalGroup(
                     panel5Layout.createParallelGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 111, Short.MAX_VALUE)
                 );
                 panel5Layout.setVerticalGroup(
                     panel5Layout.createParallelGroup()
@@ -211,7 +248,9 @@ public class HomePanel extends JPanel {
             }
 
             //---- label3 ----
-            label3.setText(" 40");
+            int showB = ConJDBC.countDeviceB();
+            String showB1 = showB +"";
+            label3.setText(showB1);
             label3.setFont(new Font("Segoe UI Black", Font.BOLD, 48));
             label3.setForeground(new Color(102, 102, 102));
 
@@ -221,8 +260,9 @@ public class HomePanel extends JPanel {
                 panel4Layout.createParallelGroup()
                     .addComponent(panel5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(GroupLayout.Alignment.TRAILING, panel4Layout.createSequentialGroup()
-                        .addGap(0, 9, Short.MAX_VALUE)
-                        .addComponent(label3, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(24, Short.MAX_VALUE)
+                        .addComponent(label3, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))
             );
             panel4Layout.setVerticalGroup(
                 panel4Layout.createParallelGroup()
@@ -241,52 +281,6 @@ public class HomePanel extends JPanel {
         //---- label5 ----
         label5.setText("Normal Device");
         label5.setFont(new Font("Arial Black", Font.PLAIN, 11));
-
-        //======== panel6 ========
-        {
-            panel6.setBackground(Color.white);
-
-            //======== panel7 ========
-            {
-                panel7.setBackground(new Color(255, 204, 255));
-
-                GroupLayout panel7Layout = new GroupLayout(panel7);
-                panel7.setLayout(panel7Layout);
-                panel7Layout.setHorizontalGroup(
-                    panel7Layout.createParallelGroup()
-                        .addGap(0, 116, Short.MAX_VALUE)
-                );
-                panel7Layout.setVerticalGroup(
-                    panel7Layout.createParallelGroup()
-                        .addGap(0, 11, Short.MAX_VALUE)
-                );
-            }
-
-            //---- label6 ----
-            label6.setText("  40");
-            label6.setFont(new Font("Segoe UI Black", Font.BOLD, 48));
-            label6.setForeground(new Color(102, 102, 102));
-
-            GroupLayout panel6Layout = new GroupLayout(panel6);
-            panel6.setLayout(panel6Layout);
-            panel6Layout.setHorizontalGroup(
-                panel6Layout.createParallelGroup()
-                    .addComponent(panel7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(label6, GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-            );
-            panel6Layout.setVerticalGroup(
-                panel6Layout.createParallelGroup()
-                    .addGroup(panel6Layout.createSequentialGroup()
-                        .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(label6, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 21, Short.MAX_VALUE))
-            );
-        }
-
-        //---- label7 ----
-        label7.setText("Fixing Device");
-        label7.setFont(new Font("Arial Black", Font.PLAIN, 11));
 
         //======== tabbedPane1 ========
         {
@@ -325,26 +319,28 @@ public class HomePanel extends JPanel {
                 //---- table2 ----
                 table2.setModel(new DefaultTableModel(
                     new Object[][] {
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
+                        {null, null, null, null, null, null},
                     },
                     new String[] {
-                        "ID", "Name", "Day Start", "Day End", "Note"
+                        "ID", "Name", "Positon", "Status", "Date", "Note"
                     }
                 ));
                 table2.setGridColor(Color.white);
+                table2.setFont(new Font("JetBrains Mono Medium", Font.BOLD, 14));
+                table2.setForeground(Color.black);
                 scrollPane3.setViewportView(table2);
+                showDataB(ConJDBC.getAllB());
             }
-            tabbedPane1.addTab("Maintenance", scrollPane3);
+            tabbedPane1.addTab("Device B", scrollPane3);
         }
 
         GroupLayout layout = new GroupLayout(this);
@@ -360,38 +356,32 @@ public class HomePanel extends JPanel {
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup()
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(48, 48, 48)
-                            .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(62, 62, 62)
-                            .addComponent(label4)))
+                            .addGap(204, 204, 204)
+                            .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE))
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addContainerGap(218, Short.MAX_VALUE)
+                            .addComponent(label5)
+                            .addGap(124, 124, 124)))
                     .addGroup(layout.createParallelGroup()
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(39, 39, 39)
-                            .addComponent(panel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
-                            .addComponent(label5)))
-                    .addGap(46, 46, 46)
-                    .addGroup(layout.createParallelGroup()
-                        .addComponent(panel6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(6, 6, 6)
-                            .addComponent(label7)))
-                    .addContainerGap(334, Short.MAX_VALUE))
+                            .addComponent(label4)))
+                    .addGap(264, 264, 264))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
                 .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup()
                         .addComponent(panel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panel6, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE)))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addGroup(layout.createParallelGroup()
                         .addComponent(label4)
-                        .addComponent(label5)
-                        .addComponent(label7))
+                        .addComponent(label5))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -406,8 +396,8 @@ public class HomePanel extends JPanel {
     private JTextField textField1;
     private JButton btFind;
     private JLabel label1;
-    private JButton btFind2;
-    private JButton btFind3;
+    private JButton btRest;
+    private JButton btR;
     private JPanel panel2;
     private JPanel panel3;
     private JLabel label2;
@@ -416,26 +406,36 @@ public class HomePanel extends JPanel {
     private JLabel label3;
     private JLabel label4;
     private JLabel label5;
-    private JPanel panel6;
-    private JPanel panel7;
-    private JLabel label6;
-    private JLabel label7;
     private JTabbedPane tabbedPane1;
     private JScrollPane scrollPane2;
-    private static JTable table1;
+    private JTable table1;
     private JScrollPane scrollPane3;
     private JTable table2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-    public static void showData(java.util.List<Device> DVL){
-        List<Device> CafeList = new ArrayList<>();
-        CafeList = DVL;
+    public void showData(java.util.List<Device> DVL){
+        List<Device> DeviceList = new ArrayList<>();
+        DeviceList = DVL;
         DefaultTableModel model;
         table1.getModel();
         model = (DefaultTableModel) table1.getModel();
         model.setRowCount(0);
-        CafeList.forEach((cf)->{
+        DeviceList.forEach((cf)->{
             model.addRow(new Object [] {
                     cf.getId(),cf.getName(),cf.getPosition(),cf.getStatus(),cf.getNote()
+            });
+        });
+
+    };
+    public void showDataB(List<DeviceB> DVB){
+        List<DeviceB> DeviceList = new ArrayList<>();
+        DeviceList = DVB;
+        DefaultTableModel model;
+        table2.getModel();
+        model = (DefaultTableModel) table2.getModel();
+        model.setRowCount(0);
+        DeviceList.forEach((cf)->{
+            model.addRow(new Object [] {
+                    cf.getId(),cf.getName(),cf.getPosition(),cf.getStatus(),cf.getDate(),cf.getNote()
             });
         });
 

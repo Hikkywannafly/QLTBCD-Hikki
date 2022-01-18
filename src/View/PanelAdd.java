@@ -4,6 +4,7 @@
 
 package View;
 
+import java.awt.event.*;
 import Controller.Screen;
 import database.ConJDBC;
 import enity.Device;
@@ -29,6 +30,46 @@ public class PanelAdd extends JPanel {
         itemList.add(new EventBean("panelEdit", panelTT,labeladd));
         sc.setEvent(itemList);
 
+    }
+
+    private void btAddMouseClicked(MouseEvent e) {
+        // TODO add your code here
+        try {
+            Device dv = new Device();
+            int id = Integer.parseInt(txId.getText());
+            String name = txName.getText();
+            String position = txP.getText();
+            String status = txS.getText();
+            String note = txN.getText();
+            if(name.equals("") || position.equals("")|| status.equals("") ){
+                System.out.println("Loi");
+                JOptionPane.showMessageDialog(null,"Error some things");
+
+            }
+            else{
+                dv.setId(id);
+                dv.setName(name);
+                dv.setPosition(position);
+                dv.setStatus(status);
+                dv.setNote(note);
+                ConJDBC.insert(dv);
+                JOptionPane.showMessageDialog(this,"Add Success!");
+            }
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null,"some thing was wrong");
+        }
+
+    }
+
+    private void btClearMouseClicked(MouseEvent e) {
+        // TODO add your code here
+        txId.setText("");
+        txName.setText("");
+        txP.setText("");
+        txN.setText("");
+        txS.setText("");
     }
 
     private void initComponents() {
@@ -130,58 +171,22 @@ public class PanelAdd extends JPanel {
 
         //---- btAdd ----
         btAdd.setText("Add");
-        btAdd.addActionListener(new ActionListener() {
+        btAdd.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    Device dv = new Device();
-                    int id = Integer.parseInt(txId.getText());
-                    String name = txName.getText();
-                    String position = txP.getText();
-                    String status = txS.getText();
-                    String note = txN.getText();
-                    if(name.equals("") || position.equals("")|| status.equals("") ){
-                        System.out.println("Loi");
-                        JOptionPane.showMessageDialog(null,"Error some things");
-
-                    }
-                    else{
-                        try{
-                            dv.setId(id);
-                            dv.setName(name);
-                            dv.setPosition(position);
-                            dv.setStatus(status);
-                            dv.setNote(note);
-
-                            ConJDBC.insert(dv);
-                            JOptionPane.showMessageDialog(null,"Add success !");
-                        } catch(Exception exx){
-                            exx.printStackTrace();
-                            JOptionPane.showMessageDialog(null,"some thing was wrong");
-                        }
-
-                    }
-                }
-                catch(Exception ex){
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null,"some thing was wrong");
-                }
-
+            public void mouseClicked(MouseEvent e) {
+                btAddMouseClicked(e);
             }
         });
+
         //---- btClear ----
         btClear.setText("Clear");
-        btClear.addActionListener(new ActionListener() {
+        btClear.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                txId.setText("");
-                txName.setText("");
-                txP.setText("");
-                txN.setText("");
-                txS.setText("");
-
+            public void mouseClicked(MouseEvent e) {
+                btClearMouseClicked(e);
             }
         });
+
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
         layout.setHorizontalGroup(

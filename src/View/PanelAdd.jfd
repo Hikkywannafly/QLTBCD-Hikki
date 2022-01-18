@@ -79,10 +79,12 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btAdd"
 				"text": "Add"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btAddMouseClicked", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btClear"
 				"text": "Clear"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btClearMouseClicked", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

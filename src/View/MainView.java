@@ -160,7 +160,7 @@ public class MainView extends JFrame {
                 panelBiling.setBackground(Color.white);
 
                 //---- labelBill ----
-                labelBill.setText("Detail");
+                labelBill.setText("Receive");
                 labelBill.setForeground(new Color(81, 147, 179));
                 labelBill.setFont(new Font("Segoe UI Black", Font.ITALIC, 16));
 
@@ -170,7 +170,7 @@ public class MainView extends JFrame {
                     panelBilingLayout.createParallelGroup()
                         .addGroup(panelBilingLayout.createSequentialGroup()
                             .addGap(54, 54, 54)
-                            .addComponent(labelBill, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelBill, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
                             .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 panelBilingLayout.setVerticalGroup(
@@ -292,7 +292,7 @@ public class MainView extends JFrame {
                         .addGroup(panelHomeLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(labelHome)
-                            .addContainerGap(16, Short.MAX_VALUE))
+                            .addContainerGap(21, Short.MAX_VALUE))
                         .addComponent(panel10, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
             }
