@@ -1,0 +1,345 @@
+JFDML JFormDesigner: "7.0.5.2.410" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :::p, comp tabbedPane1::::676:x, space u:::p, comp panel1:::p::p, space :p:14:p}, seq {par l {seq l {space :p:48:p, comp panel2:::p::p}, seq l {space :p:62:p, comp label4:::p::p}}, par l {seq l {space :p:39:p, comp panel4:::p::p}, seq l {space :p:54:p, comp label5:::p::p}}, space :p:46:p, par l {comp panel6:::p::p, seq {space :6:6:p, comp label7:::p::p}}, space ::334:x}}"
+			"$verticalGroup": "par l {seq {par l:::p {comp panel2:::::x, comp panel4:::::x, comp panel6::t:p::p}, space :::p, par b {comp label4::b:p::p, comp label5::b:p::p, comp label7::b:p::p}, space :::x, par l:::p {comp panel1:::::x, comp tabbedPane1::::318:x}, space :p:26:p}}"
+		} ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :::p, par l {seq {space :6:6:p, comp label1:::::x}, seq {par t {comp textField1:::p:75:p, comp btFind:::p:70:p}, space :0:0:x}, seq t {space :0:0:x, par l {comp btFind2::t:p:70:p, comp btFind3::t:p:70:p}}}, space :::p}}"
+				"$verticalGroup": "par l {seq l {space :p:14:p, comp textField1:::p:22:p, space :::p, comp label1:::p::p, space :p:18:p, comp btFind:::p:22:p, space u:::p, comp btFind2:::p:22:p, space u:::p, comp btFind3:::p:20:p, space ::133:x}}"
+			} ) {
+				name: "panel1"
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				"border": new javax.swing.border.TitledBorder( "Tool" )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField1"
+					"background": new java.awt.Color( 81, 147, 179, 255 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btFind"
+					"text": "Find"
+					"background": &Color0 new java.awt.Color( 81, 147, 179, 255 )
+					"font": &Font0 new java.awt.Font( "Segoe UI Black", 2, 10 )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btFindMouseClicked", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "Enter ID here"
+					"background": new java.awt.Color( 0, 0, 0, 255 )
+					"foreground": new java.awt.Color( 51, 51, 51, 255 )
+					"font": new java.awt.Font( "Segoe UI Black", 2, 10 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btFind2"
+					"text": "Reset"
+					"background": #Color0
+					"font": #Font0
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btFind3"
+					"text": "About"
+					"background": #Color0
+					"font": #Font0
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq t {space ::23:x, comp label2:::p:72:p, space :p:16:p}, comp panel3::t:::x}"
+				"$verticalGroup": "par l {seq l {comp panel3:::p::p, space :p:12:p, comp label2:::p:65:p, space :0:0:x}}"
+			} ) {
+				name: "panel2"
+				"background": &Color1 new java.awt.Color( 255, 255, 255, 255 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {space :0:0:x}"
+					"$verticalGroup": "par l {space :0:11:x}"
+				} ) {
+					name: "panel3"
+					"background": &Color2 new java.awt.Color( 255, 204, 255, 255 )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "30"
+					"font": &Font1 new java.awt.Font( "Segoe UI Black", 1, 48 )
+					"foreground": new java.awt.Color( 102, 102, 102, 255 )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {comp panel5:::::x, seq t {space :0:9:x, comp label3:::p:102:p}}"
+				"$verticalGroup": "par l {seq l {comp panel5:::p::p, space u:::p, comp label3:::p:65:p, space :0:0:x}}"
+			} ) {
+				name: "panel4"
+				"background": #Color1
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {space :0:0:x}"
+					"$verticalGroup": "par l {space :0:11:x}"
+				} ) {
+					name: "panel5"
+					"background": #Color2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": " 40"
+					"font": #Font1
+					"foreground": &Color3 new java.awt.Color( 102, 102, 102, 255 )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Broken Device"
+				"font": new java.awt.Font( "Arial Black", 0, 11 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Normal Device"
+				"font": new java.awt.Font( "Arial Black", 0, 11 )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {comp panel7:::::x, comp label6::::116:x}"
+				"$verticalGroup": "par l {seq l {comp panel7:::p::p, space u:::p, comp label6:::p:65:p, space :0:21:x}}"
+			} ) {
+				name: "panel6"
+				"background": #Color1
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {space :0:116:x}"
+					"$verticalGroup": "par l {space :0:11:x}"
+				} ) {
+					name: "panel7"
+					"background": #Color2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label6"
+					"text": "  40"
+					"font": #Font1
+					"foreground": #Color3
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "Fixing Device"
+				"font": new java.awt.Font( "Arial Black", 0, 11 )
+			} )
+			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+				name: "tabbedPane1"
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane2"
+					add( new FormComponent( "javax.swing.JTable" ) {
+						name: "table1"
+						"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+						}, new java.util.Vector {
+							add( "ID" )
+							add( "Name" )
+							add( "Position" )
+							add( "Status" )
+							add( "Note" )
+						}, new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						}, new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						}, new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						} )
+						"gridColor": sfield java.awt.Color white
+						"font": new java.awt.Font( "JetBrains Mono Medium", 1, 14 )
+						"foreground": new java.awt.Color( 0, 0, 0, 255 )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Device"
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane3"
+					add( new FormComponent( "javax.swing.JTable" ) {
+						name: "table2"
+						"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							add( new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							} )
+						}, new java.util.Vector {
+							add( "ID" )
+							add( "Name" )
+							add( "Day Start" )
+							add( "Day End" )
+							add( "Note" )
+						}, new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						}, new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						}, new java.util.Vector {
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+							add( null )
+						} )
+						"gridColor": new java.awt.Color( 255, 255, 255, 255 )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Maintenance"
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 805, 465 )
+		} )
+	}
+}

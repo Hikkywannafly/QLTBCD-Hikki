@@ -1,0 +1,100 @@
+JFDML JFormDesigner: "7.0.5.2.410" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :::p, comp labeladd:::p::p, space :::p, comp panel1:::::x}, seq l {par t {seq t {space :p:86:p, comp btAdd:::p:68:p, space :p:78:p, comp btClear:::p:66:p}, seq l {space :p:70:p, par l {seq l {comp labelId:::p:32:p, space :p:48:p, comp txId:::p:148:p}, seq l {comp labelName:::p:44:p, space :p:36:p, comp txName:::p:148:p}, seq l {comp labelP:::p:53:p, space :p:27:p, comp txP:::p:148:p}, seq l {comp labelS:::p:44:p, space :36:36:p, comp txS:::p:148:p}, seq l {comp labelN:::p:44:p, space :36:36:p, comp txN:::p:148:p}}}}, space ::191:x, comp panel2:::p::p, space :p:89:p}}"
+			"$verticalGroup": "par l {seq {par l {comp labeladd:::p:26:p, comp panel1:::p::p}, par l {seq {space :p:84:p, comp panel2:::p::p}, seq {space :0:0:x, par b {comp txId::b:p::p, comp labelId::b:p:25:p}, space s:::p, par b {comp txName::b:p::p, comp labelName::b:p:25:p}, space s:::p, par l {comp txP:::p::p, seq {space :3:3:p, comp labelP:::p:25:p}}, space s:::p, par l {seq l {space :3:3:p, comp labelS:::p:25:p}, comp txS:::p::p}, space :p:27:p, par l {seq l {space :3:3:p, comp labelN:::p:25:p}, comp txN:::p::p}}}, space ::75:x, par b {comp btAdd::b:p::p, comp btClear::b:p::p}, space :p:96:p}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelId"
+				"text": "ID"
+				"font": new java.awt.Font( "Segoe UI", 1, 12 )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txId"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelName"
+				"text": "Name"
+				"font": new java.awt.Font( "Segoe UI", 1, 12 )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txName"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labeladd"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/View/Pic/caret-left.png" )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {space :p:17:p, comp label3:::p::p, space ::693:x}}"
+				"$verticalGroup": "par l {seq t {space :0:5:x, comp label3:::p::p}}"
+			} ) {
+				name: "panel1"
+				"background": new java.awt.Color( 80, 64, 154, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "Add Items"
+					"font": new java.awt.Font( "Microsoft Uighur", 2, 18 )
+					"foreground": sfield java.awt.Color white
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq t {space ::78:x, comp label5:::p:143:p, space :::p}}"
+				"$verticalGroup": "par l {seq l {space :p:39:p, comp label5:::p:124:p, space ::51:x}}"
+			} ) {
+				name: "panel2"
+				"background": new java.awt.Color( 255, 204, 204, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label5"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/View/Pic/wewe.png" )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelP"
+				"text": "Position"
+				"font": new java.awt.Font( "Segoe UI", 1, 12 )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txP"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelS"
+				"text": "Status"
+				"font": new java.awt.Font( "Segoe UI", 1, 12 )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txS"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelN"
+				"text": "Note"
+				"font": new java.awt.Font( "Segoe UI", 1, 12 )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txN"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btAdd"
+				"text": "Add"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btClear"
+				"text": "Clear"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 805, 525 )
+		} )
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {space :0:26:x}"
+			"$verticalGroup": "par l {space :0:26:x}"
+		} ) {
+			name: "panelTT"
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 900, 110 )
+		} )
+	}
+}

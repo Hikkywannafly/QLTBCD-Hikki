@@ -1,0 +1,169 @@
+JFDML JFormDesigner: "7.0.5.2.410" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {comp panel1:::p:149:p, space :::p, par l {seq {space :0:204:x, comp label1:::p::p, space :p:189:p, comp panel2:::p::p}, seq l {comp panelView:::p::p, space :0:1:x}}}}"
+			"$verticalGroup": "par l {seq {par t {comp panel2:::p::p, comp label1:::p::p}, space :::p, comp panelView:::p::p, space :0:0:x}, comp panel1:::::x}"
+		} ) {
+			name: "this"
+			"background": new java.awt.Color( 153, 153, 153, 255 )
+			"undecorated": true
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {comp panelChart::l:::x, comp panelBiling::l:::x, comp panelEdit::l:::x, comp panelHome::l:::x, seq {par l {seq l {comp panel5:::p::p, space u:::p, par l {seq {space :6:6:p, comp label2:::p:95:p}, comp label3::l:p:79:p, comp panel4::l:p::p}}, seq l {space :p:61:p, comp panel3:::p::p}}, space :0:0:x}, seq t {space :::x, comp panel6:::p::p, space :p:37:p}}"
+				"$verticalGroup": "par l {seq l {par l {seq {comp panel4:::p::p, space :::p, comp label2:::p::p, space :::p, comp label3:::p::p}, comp panel5:::p::p}, space :p:81:p, comp panelHome:::p::p, space :::p, comp panelEdit:::p::p, space :::p, comp panelBiling:::p::p, space :::p, comp panelChart:::p::p, space :p:36:p, comp panel3:::p::p, space :::x, comp panel6:::p::p, space :::p}}"
+			} ) {
+				name: "panel1"
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {space :0:120:x}"
+					"$verticalGroup": "par l {space :0:20:x}"
+				} ) {
+					name: "panel4"
+					"background": new java.awt.Color( 81, 147, 179, 255 )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {space :0:19:x}"
+					"$verticalGroup": "par l {space :0:93:x}"
+				} ) {
+					name: "panel5"
+					"background": new java.awt.Color( 255, 204, 255, 255 )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "Equipment "
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
+					"font": new java.awt.Font( "Impact", 2, 19 )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "Manage"
+					"background": new java.awt.Color( 51, 51, 51, 255 )
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
+					"font": new java.awt.Font( "Impact", 2, 18 )
+					"verticalAlignment": 1
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {space :p:58:p, comp labelEdit:::p::p, space :::x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp labelEdit:::p::p, space :::x}}"
+				} ) {
+					name: "panelEdit"
+					"background": &Color0 new java.awt.Color( 255, 255, 255, 255 )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelEdit"
+						"text": "Edit"
+						"foreground": &Color1 new java.awt.Color( 81, 147, 179, 255 )
+						"font": new java.awt.Font( "Segoe UI Black", 2, 16 )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {space :p:54:p, comp labelBill:::p:56:p, space :::x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp labelBill:::p::p, space :::x}}"
+				} ) {
+					name: "panelBiling"
+					"foreground": new java.awt.Color( 255, 255, 255, 255 )
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelBill"
+						"text": "Detail"
+						"foreground": new java.awt.Color( 81, 147, 179, 255 )
+						"font": new java.awt.Font( "Segoe UI Black", 2, 16 )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {space :p:56:p, comp labelChart:::p:52:p, space :::x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp labelChart:::p::p, space :::x}}"
+				} ) {
+					name: "panelChart"
+					"foreground": new java.awt.Color( 204, 204, 204, 255 )
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelChart"
+						"text": "Chart"
+						"foreground": new java.awt.Color( 81, 147, 179, 255 )
+						"font": new java.awt.Font( "Segoe UI Black", 2, 16 )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq t {space ::17:x, comp label4:::p::p, space :p:14:p}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp label4:::p:16:p, space :::x}}"
+				} ) {
+					name: "panel6"
+					"background": new java.awt.Color( 51, 51, 51, 255 )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label4"
+						"text": "LOG OUT"
+						"foreground": new java.awt.Color( 255, 255, 255, 255 )
+						"background": new java.awt.Color( 255, 255, 255, 255 )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {space :0:0:x}"
+					"$verticalGroup": "par l {space :0:47:x}"
+				} ) {
+					name: "panel3"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {comp panel10:::p::p, space :p:47:p, comp labelHome:::p::p, space :::x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp labelHome:::p::p, space ::16:x}, comp panel10::l:::x}"
+				} ) {
+					name: "panelHome"
+					"background": #Color0
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelHome"
+						"text": "Home"
+						"foreground": #Color1
+						"font": new java.awt.Font( "Segoe UI Black", 2, 18 )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {space :0:11:x}"
+						"$verticalGroup": "par l {space :0:52:x}"
+					} ) {
+						name: "panel10"
+						"background": new java.awt.Color( 255, 204, 255, 255 )
+					} )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq t {space ::136:x, comp panelExit:::p::p, space :p:16:p}}"
+				"$verticalGroup": "par l {comp panelExit::l:::x}"
+			} ) {
+				name: "panel2"
+				"background": new java.awt.Color( 81, 147, 179, 255 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq t {space ::19:x, comp labelExit:::p:20:p, space :p:15:p}}"
+					"$verticalGroup": "par l {seq l {comp labelExit:::p:19:p, space :0:4:x}}"
+				} ) {
+					name: "panelExit"
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseEntered", "panelExitMouseEntered", true ) )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseExited", "panelExitMouseExited", true ) )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "panelExitMouseClicked", true ) )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelExit"
+						"text": "X"
+						"font": new java.awt.Font( "Segoe UI Black", 0, 18 )
+						"verticalAlignment": 1
+						"foreground": new java.awt.Color( 0, 0, 0, 255 )
+					} )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {space :0:807:x}"
+				"$verticalGroup": "par l {space :0:468:x}"
+			} ) {
+				name: "panelView"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Device management software in school"
+				"font": new java.awt.Font( "Segoe UI Black", 2, 11 )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 5, 0 )
+			"size": new java.awt.Dimension( 965, 530 )
+		} )
+	}
+}
