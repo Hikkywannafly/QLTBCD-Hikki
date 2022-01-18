@@ -150,7 +150,9 @@ public class PanelAdd extends JPanel {
                         dv.setPosition(position);
                         dv.setStatus(status);
                         dv.setNote(note);
+
                         ConJDBC.insert(dv);
+                        JOptionPane.showMessageDialog(null,"Add success !");
                     }
                 }
                 catch(Exception ex){

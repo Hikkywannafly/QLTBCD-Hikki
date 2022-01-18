@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:2:p, comp labeladd:::p::p, space :::p, comp panel1:::::x}, seq t {space ::197:x, comp button1:::p:93:p, space :p:192:p, comp button2:::p:94:p, space :p:229:p}, seq l {space :p:51:p, comp tabbedPane1:::p:676:p, space ::78:x}}"
-			"$verticalGroup": "par l {seq l {par l {comp labeladd:::p:26:p, comp panel1:::p::p}, space :p:35:p, comp tabbedPane1:::p:318:p, space s:::p, par b {comp button2::b:p::p, comp button1::b:::x}, space :p:40:p}}"
+			"$horizontalGroup": "par l {seq l {space :p:2:p, comp labeladd:::p::p, space :::p, comp panel1:::::x}, seq l {space :p:51:p, par l {seq {comp button3:::p::p, space :p:116:p, comp btDelete:::p:93:p, space ::144:x, comp btUpdate:::p:94:p, space :p:229:p}, seq {comp tabbedPane1:::p:676:p, space ::78:x}}}}"
+			"$verticalGroup": "par l {seq l {par l {comp labeladd:::p:26:p, comp panel1:::p::p}, space :p:35:p, comp tabbedPane1:::p:318:p, space s:::p, par l {par b {comp button3::b:::x, comp btDelete::b:::x}, comp btUpdate:::p::p}, space :p:40:p}}"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -26,11 +26,12 @@ new FormModel {
 				} )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button1"
+				name: "btDelete"
 				"text": "Delete"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "btDeleteMouseClicked", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button2"
+				name: "btUpdate"
 				"text": "Update"
 			} )
 			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
@@ -117,6 +118,7 @@ new FormModel {
 						"gridColor": sfield java.awt.Color white
 						"font": new java.awt.Font( "JetBrains Mono Medium", 1, 14 )
 						"foreground": new java.awt.Color( 0, 0, 0, 255 )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "table1MouseClicked", true ) )
 					} )
 				}, new FormLayoutConstraints( null ) {
 					"title": "Device"
@@ -191,6 +193,11 @@ new FormModel {
 				}, new FormLayoutConstraints( null ) {
 					"title": "Maintenance"
 				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "Reload"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button3MouseClicked", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

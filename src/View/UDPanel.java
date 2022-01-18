@@ -4,8 +4,11 @@
 
 package View;
 
+import java.awt.event.*;
 import javax.swing.table.*;
 import Controller.Screen;
+import database.ConJDBC;
+import enity.Device;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -26,18 +29,55 @@ public class UDPanel extends JPanel {
 
     }
 
+    private void btDeleteMouseClicked(MouseEvent e) {
+        Device dv = new Device();
+        // TODO add your code here
+//        int index = table1.getSelectedRow();
+//        System.out.println(index);
+//        // int id = table1.getSelectedRow().
+        int row = table1.getSelectedRow();
+        int ids= (int) table1.getValueAt(row, 0);
+        System.out.println(ids);
+        dv.setId(ids);
+        if(row == -1 ){
+            JOptionPane.showMessageDialog(this,"There are no items to choose from");
+        }
+        else{
+           int choose= JOptionPane.showConfirmDialog(this, "Do you want to delete?", "Confirm", JOptionPane.YES_NO_OPTION);
+            if(choose != JOptionPane.YES_OPTION){
+                return;
+            }
+            else{
+                ConJDBC.delete(dv);
+            }
+        }
+
+
+    }
+
+    private void table1MouseClicked(MouseEvent e) {
+        // TODO add your code here
+
+    }
+
+    private void button3MouseClicked(MouseEvent e) {
+        // TODO add your code here
+        showData(ConJDBC.getAll());
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         labeladd = new JLabel();
         panel1 = new JPanel();
         label1 = new JLabel();
-        button1 = new JButton();
-        button2 = new JButton();
+        btDelete = new JButton();
+        btUpdate = new JButton();
         tabbedPane1 = new JTabbedPane();
         scrollPane2 = new JScrollPane();
         table1 = new JTable();
         scrollPane3 = new JScrollPane();
         table2 = new JTable();
+        button3 = new JButton();
         panelTT = new JPanel();
 
         //======== this ========
@@ -71,11 +111,17 @@ public class UDPanel extends JPanel {
             );
         }
 
-        //---- button1 ----
-        button1.setText("Delete");
+        //---- btDelete ----
+        btDelete.setText("Delete");
+        btDelete.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                btDeleteMouseClicked(e);
+            }
+        });
 
-        //---- button2 ----
-        button2.setText("Update");
+        //---- btUpdate ----
+        btUpdate.setText("Update");
 
         //======== tabbedPane1 ========
         {
@@ -101,9 +147,16 @@ public class UDPanel extends JPanel {
                 table1.setGridColor(Color.white);
                 table1.setFont(new Font("JetBrains Mono Medium", Font.BOLD, 14));
                 table1.setForeground(Color.black);
+                table1.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        table1MouseClicked(e);
+                    }
+                });
                 scrollPane2.setViewportView(table1);
             }
             tabbedPane1.addTab("Device", scrollPane2);
+            showData(ConJDBC.getAll());
 
             //======== scrollPane3 ========
             {
@@ -127,6 +180,15 @@ public class UDPanel extends JPanel {
             tabbedPane1.addTab("Maintenance", scrollPane3);
         }
 
+        //---- button3 ----
+        button3.setText("Reload");
+        button3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                button3MouseClicked(e);
+            }
+        });
+
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,16 +198,19 @@ public class UDPanel extends JPanel {
                     .addComponent(labeladd)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(197, Short.MAX_VALUE)
-                    .addComponent(button1, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
-                    .addGap(192, 192, 192)
-                    .addComponent(button2, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-                    .addGap(229, 229, 229))
                 .addGroup(layout.createSequentialGroup()
                     .addGap(51, 51, 51)
-                    .addComponent(tabbedPane1, GroupLayout.PREFERRED_SIZE, 676, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(78, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup()
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(button3)
+                            .addGap(116, 116, 116)
+                            .addComponent(btDelete, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                            .addComponent(btUpdate, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
+                            .addGap(229, 229, 229))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(tabbedPane1, GroupLayout.PREFERRED_SIZE, 676, GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(78, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
@@ -156,9 +221,11 @@ public class UDPanel extends JPanel {
                     .addGap(35, 35, 35)
                     .addComponent(tabbedPane1, GroupLayout.PREFERRED_SIZE, 318, GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(button2)
-                        .addComponent(button1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(button3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btUpdate))
                     .addGap(40, 40, 40))
         );
 
@@ -183,13 +250,29 @@ public class UDPanel extends JPanel {
     private JLabel labeladd;
     private JPanel panel1;
     private JLabel label1;
-    private JButton button1;
-    private JButton button2;
+    private JButton btDelete;
+    private JButton btUpdate;
     private JTabbedPane tabbedPane1;
     private JScrollPane scrollPane2;
     private JTable table1;
     private JScrollPane scrollPane3;
     private JTable table2;
+    private JButton button3;
     private JPanel panelTT;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    public void showData(java.util.List<Device> DVL){
+        List<Device> CafeList = new ArrayList<>();
+        CafeList = DVL;
+        DefaultTableModel model;
+        table1.getModel();
+        model = (DefaultTableModel) table1.getModel();
+        model.setRowCount(0);
+        CafeList.forEach((cf)->{
+            model.addRow(new Object [] {
+                    cf.getId(),cf.getName(),cf.getPosition(),cf.getStatus(),cf.getNote()
+            });
+        });
+
+    };
 }
