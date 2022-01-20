@@ -26,6 +26,7 @@ public class UDPanel extends JPanel {
         List<EventBean> itemList = new ArrayList<EventBean>();
         itemList.add(new EventBean("panelEdit", panelTT,labeladd));
         sc.setEvent(itemList);
+        showData(ConJDBC.getAll());
 
     }
 
@@ -51,6 +52,7 @@ public class UDPanel extends JPanel {
                 else{
                     dv.setId(ids);
                     ConJDBC.delete(dv);
+                    showData(ConJDBC.getAll());
                 }
             }
         }
@@ -97,6 +99,7 @@ public class UDPanel extends JPanel {
             ud.txNote.setText(note);
             ud.setVisible(true);
             ud.setLocationRelativeTo(null);
+            showData(ConJDBC.getAll());
         }
         catch(Exception ex){
             ex.printStackTrace();

@@ -1,0 +1,73 @@
+JFDML JFormDesigner: "7.0.5.2.410" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"$sizePolicy": 1
+			"undecorated": true
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "dialogPane"
+				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
+				"background": new java.awt.Color( 80, 64, 154, 255 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq {space :::p, par l {seq {comp label1:::p::p, space :::x, comp panel1:::p::p}, seq l {space :0:0:x, comp label3:::p::p, space s:::p, comp txU:::p:176:p}, seq t {comp label4:::p::p, space :p:18:p, comp txP:::p:170:p, space :0:0:x}}, space :::p}, seq t {space :::x, comp button1:::p::p, space :p:69:p}}"
+					"$verticalGroup": "par l {seq l {par l {seq {par l {comp label1:::p::p, comp panel1:::p::p}, space :p:28:p, par t {comp txU:::p::p, comp label3:::p::p}, space ::34:x, comp txP:::p::p}, seq {space :0:130:x, comp label4:::p::p}}, space :p:35:p, comp button1:::p::p, space ::116:x}}"
+				} ) {
+					name: "contentPanel"
+					"background": new java.awt.Color( 80, 64, 154, 255 )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label1"
+						"text": "LOGIN"
+						"foreground": sfield java.awt.Color white
+						"font": new java.awt.Font( "Segoe UI Black", 0, 28 )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {seq t {space ::14:x, comp label2:::p:23:p, space :::p}}"
+						"$verticalGroup": "par l {seq t {space :0:0:x, comp label2:::p::p}}"
+					} ) {
+						name: "panel1"
+						"background": new java.awt.Color( 80, 64, 154, 255 )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "panel1MouseClicked", true ) )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseEntered", "panel1MouseEntered", true ) )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseExited", "panel1MouseExited", true ) )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label2"
+							"text": "X"
+							"font": new java.awt.Font( "Segoe UI Black", 1, 20 )
+						} )
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "txU"
+					} )
+					add( new FormComponent( "javax.swing.JPasswordField" ) {
+						name: "txP"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "button1"
+						"text": "Login"
+						"background": new java.awt.Color( 80, 64, 154, 255 )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button1MouseClicked", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label3"
+						"icon": new com.jformdesigner.model.SwingIcon( 0, "/View/Pic/icons8-login-access-of-user-with-a-right-direction-arrow-48.png" )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label4"
+						"icon": new com.jformdesigner.model.SwingIcon( 0, "/View/Pic/icons8-ethereum-lock-with-encryption-and-digital-security-transaction-48.png" )
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "North"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 290, 15 )
+			"size": new java.awt.Dimension( 265, 310 )
+		} )
+	}
+}
