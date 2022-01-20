@@ -1,0 +1,52 @@
+JFDML JFormDesigner: "7.0.5.2.410" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:98:p, comp panelAdd:::p::p, space ::168:x, comp panelUD:::p::p, space :p:125:p}}"
+			"$verticalGroup": "par l {seq l {space :p:133:p, par t {comp panelUD:::p::p, comp panelAdd:::p::p}, space ::159:x}}"
+		} ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {space :p:64:p, par l {comp label1:::p::p, seq l {space :p:8:p, comp labelAdd:::p::p}}, space ::71:x}}"
+				"$verticalGroup": "par l {seq t {space ::51:x, comp labelAdd:::p::p, space :p:30:p, comp label1:::p::p, space :::p}}"
+			} ) {
+				name: "panelAdd"
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "ADD ITEM"
+					"background": &Color0 new java.awt.Color( 0, 0, 0, 255 )
+					"font": &Font0 new java.awt.Font( "Segoe UI Black", 2, 16 )
+					"foreground": &Color1 new java.awt.Color( 0, 0, 0, 255 )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "labelAdd"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/View/Pic/icons8-equipment-64 (1).png" )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {par l {seq {space :p:36:p, comp label2:::p::p}, seq l {space :p:63:p, comp labelUD:::p::p}}, space ::33:x}}"
+				"$verticalGroup": "par l {seq t {space ::42:x, comp labelUD:::p::p, space :p:39:p, comp label2:::p::p, space :::p}}"
+			} ) {
+				name: "panelUD"
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "UPDATE/DELETE"
+					"background": #Color0
+					"font": #Font0
+					"foreground": #Color1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "labelUD"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/View/Pic/icons8-equipment-64.png" )
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 60, 30 )
+			"size": new java.awt.Dimension( 805, 465 )
+		} )
+	}
+}
