@@ -193,6 +193,24 @@ public class ConJDBC {
         }
         return sum;
     }
+    public static  void deleteb(DeviceB ct){
+        String query="delete from deviceb where id='"+ct.getId()+"'";
+        try{
+            Connection connection =getConnection();
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.executeUpdate();
+
+        }
+        catch(SQLException ex){
+
+
+            JOptionPane.showMessageDialog(null,"Some thing wear Wrong");
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 
 }
 
