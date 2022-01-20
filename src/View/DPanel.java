@@ -127,6 +127,7 @@ public class DPanel extends JPanel {
                     }
                 ));
                 table1.setGridColor(Color.white);
+                table1.setForeground(Color.black);
                 table1.setFont(new Font("JetBrains Mono ExtraBold", Font.ITALIC, 14));
                 scrollPane1.setViewportView(table1);
                 showDataB(ConJDBC.getAllB());
