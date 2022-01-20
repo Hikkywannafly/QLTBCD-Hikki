@@ -48,6 +48,23 @@ public class MainView extends JFrame {
         System.exit(0);
     }
 
+    private void panel6MouseClicked(MouseEvent e) {
+        // TODO add your code here
+        this.setVisible(false);
+        LoginView lg = new LoginView();
+        lg.setVisible(true);
+    }
+
+    private void panel6MouseEntered(MouseEvent e) {
+        // TODO add your code here
+        panel6.setBackground(Color.GRAY);
+    }
+
+    private void panel6MouseExited(MouseEvent e) {
+        // TODO add your code here
+        panel6.setBackground(Color.BLACK);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         panel1 = new JPanel();
@@ -212,7 +229,21 @@ public class MainView extends JFrame {
 
             //======== panel6 ========
             {
-                panel6.setBackground(new Color(51, 51, 51));
+                panel6.setBackground(Color.black);
+                panel6.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        panel6MouseClicked(e);
+                    }
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+                        panel6MouseEntered(e);
+                    }
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+                        panel6MouseExited(e);
+                    }
+                });
 
                 //---- label4 ----
                 label4.setText("LOG OUT");

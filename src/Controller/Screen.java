@@ -91,6 +91,7 @@ public class Screen {
                 case "panelUD":
                     node = new UDPanel();
                     break;
+
                 default:
                     new HomePanel();
                     break;
